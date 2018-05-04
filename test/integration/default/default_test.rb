@@ -5,14 +5,33 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
+# Test that Port 80 is open
+describe port(80) do
+  it { should be_listening }
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+# Test that you web page says Hello, world Windows!
+describe command('Invoke-WebRequest http://localhost') do
+  its(:stdout) { should match /Hello, world Windows!/ }
+end
+
+# Windows Versions - Check for Min of Win 2012
+# Win2016 - NT 10.0 | Win 2012 R2 - NT 6.3 | Win 2012 - NT 6.2
+#
+
+control 'WINDOWS VERSION' do
+  impact 0.8
+  title 'This test checks for a minimum Windows version of 2012 - NT 6.2.0'
+
+  describe os.family do
+    it { should eq 'windows' }
+  end
+
+  describe os.name do
+    it { should eq 'windows_server_2012_r2_standard_evaluation' }
+  end
+
+  describe os.release do
+    it { should > '6.2' }
+  end
 end
