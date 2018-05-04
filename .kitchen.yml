@@ -5,12 +5,12 @@ driver:
   region: us-west-2
   security_group_ids: sg-2560a741
   associate_public_ip: true
-  instance_type: t2.micro
+  instance_type: m3.medium ##t2.micro
   tags:
     # Replace YOURNAME and YOURCOMPANY here
     Name: "Chef Training Node for <YOURNAME>, Rees"
     created-by: "test-kitchen"
-    user: Administrator
+    user: administrator
     X-Contact: <%= ENV['USER'] %>
     X-Application: <%= ENV['X_APPLICATION'] %>
     X-Customer: "Test-Kitchen"
@@ -30,7 +30,7 @@ verifier:
   format: documentation
 
 platforms:
-  - name: windows2012r2
+  - name: windows-2012r2
 
 suites:
   - name: default
