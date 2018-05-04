@@ -27,7 +27,7 @@ verifier:
 platforms:
   - name: windows2012r2
     transport:
-      username: Administrator
+      username: administrator
       ssh_key:  ~\.ssh\id_rsa
       communicator: winrm
 
