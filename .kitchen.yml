@@ -29,8 +29,7 @@ platforms:
     transport:
       username: Administrator
       ssh_key:  ~\.ssh\id_rsa
-    driver_config:
-      user_data: C:/Users/chef/user_data
+      communicator: winrm
 
 suites:
   - name: default
