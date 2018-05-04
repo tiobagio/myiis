@@ -28,7 +28,7 @@ control 'WINDOWS VERSION' do
   end
 
   describe os.name do
-    it { should eq 'windows_server_2012_r2_standard_evaluation' }
+    it { should eq 'windows_server_2012_r2_standard' }
   end
 
   describe os.release do
