@@ -17,6 +17,11 @@ driver:
     X-Project: "Test-Kitchen"
     X-TTL: 4
 
+transport:
+    username: administrator
+    ssh_key:  ~\.ssh\id_rsa
+    communicator: winrm
+
 provisioner:
   name: chef_zero
 
@@ -26,10 +31,6 @@ verifier:
 
 platforms:
   - name: windows2012r2
-    transport:
-      username: administrator
-      ssh_key:  ~\.ssh\id_rsa
-      communicator: winrm
 
 suites:
   - name: default
